@@ -1,0 +1,19 @@
+{
+  "name": "anon",
+  "version": "1.0.0",
+  "description": "project anon server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Akhil Kulkarni",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.4",
+    "multer": "^1.1.0",
+    "pg-promise": "^5.2.5"
+  }
+}
