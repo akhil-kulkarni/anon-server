@@ -1,10 +1,11 @@
+/*jshint esversion: 6 */
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer(); // for parsing multipart/form-data
 
-var pgp = require("pg-promise")(/*options*/);
+var pgp = require("pg-promise")();
 
 var DB_URL = "postgres://localhost/anon-db";
 
@@ -43,7 +44,7 @@ app.post('/register', function (req, res) {
 		let parameterList = [recToInsert.USERNAME, recToInsert.PASSWORD, recToInsert.FIRST_NAME, recToInsert.MIDDLE_NAME, recToInsert.LAST_NAME, recToInsert.EMAIL_ID, recToInsert.DOB, recToInsert.OCCUPATION, recToInsert.SEX, recToInsert.COUNTRY_CODE, recToInsert.STATE, recToInsert.CITY, recToInsert.ZIPCODE];
 		db.query("insert into fys_tx_userinfo (username, password, first_name, middle_name, last_name, email_id, dob, occupation, sex, country_code, state, city, zipcode)", parameterList).then(function (data) {
 			console.log("DATA:", JSON.stringify(data));
-			if(!!data /*&& data.length>0*/) {
+			if(!!data) {
 				res.send('success');
 			}
 			else{
